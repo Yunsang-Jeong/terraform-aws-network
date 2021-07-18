@@ -30,5 +30,5 @@ output "route_table_nat_ids" {
 
 output "route_table_iso_id" {
   description = "The id of the route table for isolated subnet"
-  value       = length(local.isolated_subnets) > 0 ? aws_route_table.route_table_iso.id : null
+  value       = length(local.isolated_subnets) > 0 ? aws_route_table.route_table_iso["this"].id : null
 }
