@@ -11,6 +11,14 @@ output "subnet_ids" {
   }
 }
 
+output "subnet_cidr_blocks" {
+  description = "The dictioanry of the subnet cidr-block"
+  value = {
+    for identifier, subnet in aws_subnet.this :
+    identifier => subnet.cidr_block
+  }
+}
+
 output "route_table_ids" {
   description = "The dictioanry of the route-table id"
   value = {
